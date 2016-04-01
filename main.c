@@ -1,11 +1,26 @@
 #include <stdio.h>
-#include <stdlib.h>
-
-int main()
+#define IN 1 /* en una palabra */
+#define OUT 0 /* fuera de una palabra */
+/* cuenta líneas, palabras, y caracteres de la entrada */
+int main( )
 {
-   int fahr;
-   printf("FAHRENHEIT\tCELCIUS\n");
-   for(fahr=300;fahr>=0;fahr-=20)
-   printf(" %3d\t\t %6.1f\n",fahr,(5.0/9.0)*(fahr-32));
-
-}
+    int  c,ni, nw, nc, state;
+    state = OUT;
+    ni = nw = nc = 0;
+    c = getchar( );
+    while (c != EOF)
+    {
+         ++nc;
+    if (c == '\n')
+         ++ni;
+    if (c == ' ' || c == '\n' || c == '\t')
+        state = OUT;
+    else if (state == OUT)
+        {
+            state = IN;
+            ++nw;
+        }
+    c = getchar( );
+    }
+    printf ("%d %d %d\n", ni, nw, nc);
+}//Los errores se darian en el caso de ingresar caracteres que no esten aceptados
