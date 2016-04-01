@@ -1,7 +1,7 @@
 #include <stdio.h>
 #define IN 1 /* en una palabra */
 #define OUT 0 /* fuera de una palabra */
-/* cuenta líneas, palabras, y caracteres de la entrada */
+/* Se puede probar al momento de ingresasr varios tabs, espacios y/o saltos de linea, tambien con codigo ASCI */
 int main( )
 {
     int  c,ni, nw, nc, state;
@@ -23,4 +23,4 @@ int main( )
     c = getchar( );
     }
     printf ("%d %d %d\n", ni, nw, nc);
-}//Los errores se darian en el caso de ingresar caracteres que no esten aceptados
+}
